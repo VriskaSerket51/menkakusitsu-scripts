@@ -1,7 +1,7 @@
 #!/bin/bash
 # node_init.sh
-if [ "$(whoami)" -ne "root" ]; then
-  echo "this script should be run as root"
+if [[ "$(whoami)" != "root" ]]; then
+  echo "this script should be run as root!"
   exit 1
 fi
 
@@ -25,4 +25,4 @@ sudo npm i -g npm@latest
 echo "installing typescript and bun..."
 sudo npm i -g typescript bun
 
-echo "node_init.sh finished!"
+echo "initializing nodejs finished!"
