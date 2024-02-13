@@ -5,7 +5,7 @@ if [[ "$(whoami)" != "root" ]]; then
   exit 1
 fi
 
-echo "updating packages and repositories..."
+echo "updating packages..."
 sudo apt-get update
 sudo apt-get upgrade
 
