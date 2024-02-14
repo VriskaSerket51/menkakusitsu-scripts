@@ -5,10 +5,12 @@ if [[ "$(whoami)" != "root" ]]; then
   exit 1
 fi
 
-if [ -z "$1" ]; then
+if [ -z "${1}" ]; then
   echo "first argument should be link of repository!"
   exit 1
 fi
+
+usr=$(logname)
 
 result=$(sudo node -v)
 if [[ $result != v* ]]; then
@@ -22,13 +24,13 @@ if [[ $result != v* ]]; then
   sudo bash $INIT_FILE
 fi
 
-WORKSPACE_DIR=~/vs_workspace
+WORKSPACE_DIR=/home/$usr/vs_workspace
 if [ ! -d "$WORKSPACE_DIR" ]; then
   mkdir $WORKSPACE_DIR
 fi
 cd $WORKSPACE_DIR
 
-REPO_URL=$1
+REPO_URL=${1}
 REPO_NAME=$(echo ${REPO_URL##*/})
 
 echo "downloading repository..."
